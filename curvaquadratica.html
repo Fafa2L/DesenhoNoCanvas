@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Curva quadratica</title>
+        <meta charset="UTF-8">        
+        <script>
+            function draw(){
+                var canvas = document.getElementById('meuCanvas');
+                if (canvas.getContext){
+                    var cntxt = canvas.getContext('2d');
+                    cntxt.beginPath();
+                    cntxt.fillStyle = "#00FF00";
+                    cntxt.moveTo(200,100);
+                    cntxt.quadraticCurveTo(150,150,200,200);
+                    cntxt.fill();
+                    cntxt.stroke();
+                    cntxt.beginPath();
+                    cntxt.moveTo(200,100);
+                    cntxt.quadraticCurveTo(250,150,200,200);
+                    cntxt.fill();
+                    cntxt.stroke();
+                    cntxt.closePath();
+                }
+            }
+        </script>          
+    </head>
+    <body onload="draw();">
+        <h1>Curva quadratica</h1>
+        <div>
+            <canvas id="meuCanvas" width="400" height="300" style="border:1px solid #000000; background-color: white;"></canvas>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Curva quadratica</title>
+        <meta charset="UTF-8">        
+        <script>
+            function draw(){
+                var canvas = document.getElementById('meuCanvas');
+                if (canvas.getContext){
+                    var cntxt = canvas.getContext('2d');
+                    var grad = cntxt.createLinearGradient(0,0,200,0);
+                    var gradInf = cntxt.createLinearGradient(0,0,200,0);
+                    var gradR = cntxt.createRadialGradient(0,0,200,0);
+                    var gradRinf = cntxt.createRadialGradient(0,0,200,0);
+                    grad.addColorStop(0,"Red");
+                    grad.addColorStop(1,"Blue");
+                    gradInf.addColorStop(0,"rgb(120,10,10)");
+                    gradInf.addColorStop(0.5,"rgb(10,120,10)");
+                    gradInf.addColorStop(1,"rgb(10,10,120)");
+                    gradR.addColorStop(0,"green");
+                    gradR.addColorStop(1,"rgb(255, 0, 0)");
+                    gradRinf.addColorStop(0,"#0000ff");
+                    gradRinf.addColorStop(0.25,"#ffff00");
+                    gradRinf.addColorStop(0.5,"#00ff00");
+                    gradRinf.addColorStop(0.75,"#ff0000");
+                    gradRinf.addColorStop(1,"#ffffff");
+
+                    cntxt.beginPath();
+                    cntxt.fillStyle = grad;
+                    cntxt.fillRect(5,5,195,195);
+                    cntxt.stroke();
+                    cntxt.closePath();
+
+                    cntxt.beginPath();
+                    cntxt.fillStyle = gradInf;
+                    cntxt.moveTo(10,300);
+                    cntxt.quadraticCurveTo(100,200,190,300);
+                    cntxt.fill();
+                    cntxt.stroke();
+                    cntxt.beginPath();
+                    cntxt.moveTo(10,300);
+                    cntxt.quadraticCurveTo(100,400,190,300);
+                    cntxt.fill();
+                    cntxt.stroke();
+                    cntxt.closePath();
+
+                }
+            }
+        </script>          
+    </head>
+    <body onload="draw();">
+        <h1>Curva quadratica</h1>
+        <div>
+            <canvas id="meuCanvas" width="1000" height="1000" style="border:1px solid #000000; background-color: white;"></canvas>
+        </div>
+    </body>
+</html>
